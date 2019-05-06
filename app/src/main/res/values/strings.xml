@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_activity_main_page">mainPage</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_camera">Camera</string>
+    <string name="title_messages">Messages</string>
+    <string name="title_account">Account</string>
+    <string name="user_1">\@username</string>
+    <string name="hash_values">#NYC #ManhattanBridge #nature #evening # sunset #professionalPhotography</string>
+</resources>
