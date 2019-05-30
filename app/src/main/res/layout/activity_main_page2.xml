@@ -10,20 +10,13 @@
     android:orientation="vertical"
     tools:context=".StartPage">
 
-    <FrameLayout
-        android:id="@+id/container_fragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        android:layout_above="@id/navigationxml"
-    </FrameLayout>
-
     <fragment
         android:id="@+id/frag_container"
         android:name="com.example.myapplication.FragHome"
+        class="com.example.myapplication.FragHome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        class="com.example.myapplication.FragHome"
-        android:layout_alignBottom="@id/navigationxml"/>
+        android:layout_above="@id/navigationxml" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigationxml"
