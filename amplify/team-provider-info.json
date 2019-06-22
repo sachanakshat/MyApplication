@@ -1,0 +1,36 @@
+{
+    "env": {
+        "awscloudformation": {
+            "AuthRoleName": "myapplication-env-20190621135838-authRole",
+            "UnauthRoleArn": "arn:aws:iam::117077261259:role/myapplication-env-20190621135838-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::117077261259:role/myapplication-env-20190621135838-authRole",
+            "Region": "ap-south-1",
+            "DeploymentBucketName": "myapplication-env-20190621135838-deployment",
+            "UnauthRoleName": "myapplication-env-20190621135838-unauthRole",
+            "StackName": "myapplication-env-20190621135838",
+            "StackId": "arn:aws:cloudformation:ap-south-1:117077261259:stack/myapplication-env-20190621135838/91dcbe50-93fe-11e9-a6b6-06bf7cfdfe80"
+        },
+        "categories": {
+            "auth": {
+                "myapplication7e3fa2f3": {}
+            }
+        }
+    },
+    "envb": {
+        "awscloudformation": {
+            "AuthRoleName": "myapplication-envb-20190621144404-authRole",
+            "UnauthRoleArn": "arn:aws:iam::117077261259:role/myapplication-envb-20190621144404-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::117077261259:role/myapplication-envb-20190621144404-authRole",
+            "Region": "ap-south-1",
+            "DeploymentBucketName": "myapplication-envb-20190621144404-deployment",
+            "UnauthRoleName": "myapplication-envb-20190621144404-unauthRole",
+            "StackName": "myapplication-envb-20190621144404",
+            "StackId": "arn:aws:cloudformation:ap-south-1:117077261259:stack/myapplication-envb-20190621144404/eb3b8fc0-9404-11e9-9fd6-06ec0b1b970c"
+        },
+        "categories": {
+            "auth": {
+                "myapplication7e3fa2f3": {}
+            }
+        }
+    }
+}
