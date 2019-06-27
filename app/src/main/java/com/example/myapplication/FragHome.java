@@ -2,9 +2,16 @@ package com.example.myapplication;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MotionEventCompat;
+import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 
 
 /**
@@ -58,11 +65,55 @@ public class FragHome extends Fragment {
 //        }
 //    }
 
+    private static final String DEBUG_TAG  = "FragHome";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View v = inflater.inflate(R.layout.fragment_home, container, false);
+        final GestureDetector gesture = new GestureDetector(getActivity(),
+                new GestureDetector.SimpleOnGestureListener() {
+
+                    @Override
+                    public boolean onDown(MotionEvent e) {
+                        return true;
+                    }
+
+                    @Override
+                    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+                                           float velocityY) {
+                        Log.i(DEBUG_TAG, "onFling has been called!");
+                        final int SWIPE_MIN_DISTANCE = 120;
+                        final int SWIPE_MAX_OFF_PATH = 250;
+                        final int SWIPE_THRESHOLD_VELOCITY = 200;
+                        try {
+                            if (Math.abs(e1.getX() - e2.getX()) > SWIPE_MAX_OFF_PATH)
+                                return false;
+                            if (e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE
+                                    && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
+                                Log.i(DEBUG_TAG, "Right to Left");
+                                Toast.makeText(getActivity(), "Down to up", Toast.LENGTH_SHORT).show();
+                            } else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE
+                                    && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
+                                Log.i(DEBUG_TAG, "Left to Right");
+                                Toast.makeText(getActivity(), "Up to down", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (Exception e) {
+                            // nothing
+                        }
+                        return super.onFling(e1, e2, velocityX, velocityY);
+                    }
+                });
+
+        v.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return gesture.onTouchEvent(event);
+            }
+        });
+
+        return v;
     }
 
 //    // TODO: Rename method, update argument and hook method into UI event
