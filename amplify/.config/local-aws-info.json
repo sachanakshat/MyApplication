@@ -1,0 +1,12 @@
+{
+    "env": {
+        "configLevel": "project",
+        "useProfile": true,
+        "profileName": "default"
+    },
+    "envb": {
+        "configLevel": "project",
+        "useProfile": true,
+        "profileName": "default"
+    }
+}

@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MotionEventCompat;
@@ -9,9 +11,14 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 
 /**
@@ -66,12 +73,26 @@ public class FragHome extends Fragment {
 //    }
 
     private static final String DEBUG_TAG  = "FragHome";
+    int i = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home, container, false);
+        final ImageView img = (ImageView) v.findViewById(R.id.imageView);
+        final int[] imageArray = { R.drawable.nyc_morning,
+                R.drawable.signup,
+                R.drawable.f1,
+                R.drawable.f2,
+                R.drawable.f3,
+                R.drawable.f4,
+                R.drawable.f5,
+                R.drawable.f6
+        };
+        img.setImageResource(imageArray[i++]);
+
+
         final GestureDetector gesture = new GestureDetector(getActivity(),
                 new GestureDetector.SimpleOnGestureListener() {
 
@@ -94,10 +115,16 @@ public class FragHome extends Fragment {
                                     && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
                                 Log.i(DEBUG_TAG, "Right to Left");
                                 Toast.makeText(getActivity(), "Down to up", Toast.LENGTH_SHORT).show();
+                                if(imageArray.length-1 > i)
+                                {
+                                    img.setImageResource(imageArray[i++]);
+                                }
                             } else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE
                                     && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
                                 Log.i(DEBUG_TAG, "Left to Right");
                                 Toast.makeText(getActivity(), "Up to down", Toast.LENGTH_SHORT).show();
+                                if(i>0)
+                                    img.setImageResource(imageArray[i--]);
                             }
                         } catch (Exception e) {
                             // nothing

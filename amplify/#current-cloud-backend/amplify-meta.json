@@ -1,0 +1,57 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "myapplication-env-20190621135838-authRole",
+			"UnauthRoleArn": "arn:aws:iam::117077261259:role/myapplication-env-20190621135838-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::117077261259:role/myapplication-env-20190621135838-authRole",
+			"Region": "ap-south-1",
+			"DeploymentBucketName": "myapplication-env-20190621135838-deployment",
+			"UnauthRoleName": "myapplication-env-20190621135838-unauthRole",
+			"StackName": "myapplication-env-20190621135838",
+			"StackId": "arn:aws:cloudformation:ap-south-1:117077261259:stack/myapplication-env-20190621135838/91dcbe50-93fe-11e9-a6b6-06bf7cfdfe80"
+		},
+		"categories": {
+			"auth": {
+				"myapplication7e3fa2f3": {}
+			}
+		}
+	},
+	"auth": {
+		"myapplication7e3fa2f3": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/myapplication-env-20190621135838-deployment/amplify-cfn-templates/auth/myapplication7e3fa2f3-cloudformation-template.yml",
+				"logicalId": "authmyapplication7e3fa2f3"
+			},
+			"lastPushTimeStamp": "2019-06-21T10:17:12.875Z",
+			"output": {
+				"AppClientSecret": "2iranq88p8cf3hpmtmc1ndjuamse5nffat5tq7i84j9lntd5kk5",
+				"UserPoolId": "ap-south-1_eeQckCXdd",
+				"AppClientIDWeb": "3ludch70jd4rdn5770jm2qpump",
+				"AppClientID": "6q5dv5q720573qvo1nf3daqrlm",
+				"IdentityPoolId": "ap-south-1:092326fc-58b9-41f2-8668-07162c3b65bd",
+				"IdentityPoolName": "myapplication7e3fa2f3_identitypool_7e3fa2f3__env",
+				"UserPoolName": "myapplication7e3fa2f3_userpool_7e3fa2f3"
+			},
+			"lastPushDirHash": "c0BSzhL8KASrbZUyMaTMVCCNg50="
+		}
+	},
+	"api": {
+		"myapplication": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"securityType": "AMAZON_COGNITO_USER_POOLS",
+				"GraphQLAPIIdOutput": "qe5kikorarhs5mc3p46fo5c75u",
+				"GraphQLAPIEndpointOutput": "https://hbi4sbz2h5ctdf3pad5pa3qlru.appsync-api.ap-south-1.amazonaws.com/graphql"
+			},
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/myapplication-env-20190621135838-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"logicalId": "apimyapplication"
+			},
+			"lastPushTimeStamp": "2019-06-21T10:17:14.038Z",
+			"lastPushDirHash": "fYLfqPOWCAOhrocqfXz7lfpxGSY="
+		}
+	}
+}
