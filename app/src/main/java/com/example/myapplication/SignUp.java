@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -52,10 +53,16 @@ public class SignUp extends AppCompatActivity {
         firebaseAuth.createUserWithEmailAndPassword(e,pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful())
+                if(task.isSuccessful()){
                     Toast.makeText(SignUp.this, "Registered!", Toast.LENGTH_SHORT).show();
-                else
+                    Intent intent = new Intent(SignUp.this, MainPage.class);
+                    startActivity(intent);
+                }
+                else{
                     Toast.makeText(SignUp.this, "Registeration Failed", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+
                 progressDialog.dismiss();
             }
         });

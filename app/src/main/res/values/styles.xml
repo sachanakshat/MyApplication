@@ -8,4 +8,21 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Widget.Design.TextInputLayout" parent="AppTheme">
+        <item name="hintTextAppearance">@style/AppTheme.TextFloatLabelAppearance</item>
+        <item name="counterTextAppearance">@style/TextAppearance.Design.Counter</item>
+        <item name="counterOverflowTextAppearance">@style/TextAppearance.Design.Counter.Overflow</item>
+    </style>
+
+    <style name="AppTheme.TextFloatLabelAppearance" parent="TextAppearance.Design.Hint">
+        <!-- Floating label appearance here -->
+        <item name="android:textColor">@color/disabledHintText</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="TextAppearance.App.TextInputLayout" parent="@android:style/TextAppearance">
+    <item name="android:textColor">@color/disabledHintText</item>
+    </style>
+
+
 </resources>

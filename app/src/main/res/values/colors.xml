@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#BB86FC</color>
+    <color name="colorSecondary">#03DAC6</color>
+    <color name="primaryVarient">#3700B3</color>
+    <color name="secondaryVarient">#018786</color>
+
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#FF3F80</color>
+
     <color name="usrBack">#000000</color>
+    <color name="primaryText">#FFFFFF</color>
+    <color name="secondaryText">#B3FFFFFF</color>
+    <color name="disabledHintText">#80FFFFFF</color>
+    <color name="dividers">#1FFFFFFF</color>
+    <color name="surface">#121212</color>
+    <color name="surface5">#0D121212</color>
+    <color name="surface8">#14121212</color>
+    <color name="surface11">#1C121212</color>
+    <color name="surface14">#24121212</color>
+    <color name="surface16">#29121212</color>
+    <color name="error">#CF6679</color>
     <color name="white">#FFFFFF</color>
 </resources>

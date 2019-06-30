@@ -1,12 +1,19 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 /**
@@ -60,12 +67,67 @@ public class FragAccount extends Fragment {
 //        }
 //    }
 
+    private FirebaseAuth auth = FirebaseAuth.getInstance();
+    final String TAG = "LogOut";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false);
+        View v = inflater.inflate(R.layout.fragment_account, container, false);
+        Button b = (Button) v.findViewById(R.id.button3);
+//        b.setOnClickListener(this);
+
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                // Do something
+                auth.signOut();
+                startActivity(new Intent(getActivity(), StartPage.class));
+
+// this listener will be called when there is change in firebase user session
+                FirebaseAuth.AuthStateListener authListener = new FirebaseAuth.AuthStateListener() {
+                    @Override
+                    public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        Log.d(TAG,"user==null below");
+                        if (user == null) {
+                            // user auth state is changed - user is null
+                            // launch login activity
+                            startActivity(new Intent(getActivity(), StartPage.class));
+                            getActivity().finish();
+                        }
+                    }
+                };
+            }
+        });
+
+        return v;
     }
+
+//    @Override
+//    public void onClick(View v) {
+//        switch (v.getId()) {
+//            case R.id.button3:
+//                auth.signOut();
+//
+//// this listener will be called when there is change in firebase user session
+//                FirebaseAuth.AuthStateListener authListener = new FirebaseAuth.AuthStateListener() {
+//                    @Override
+//                    public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+//                        FirebaseUser user = firebaseAuth.getCurrentUser();
+//                        if (user == null) {
+//                            // user auth state is changed - user is null
+//                            // launch login activity
+//                            startActivity(new Intent(getActivity(), StartPage.class));
+//                            finish();
+//                        }
+//                    }
+//                };
+//                break;
+//        }
+//    }
 
 //    // TODO: Rename method, update argument and hook method into UI event
 //    public void onButtonPressed(Uri uri) {
