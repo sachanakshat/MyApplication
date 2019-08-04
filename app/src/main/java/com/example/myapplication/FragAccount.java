@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +27,9 @@ import com.google.firebase.auth.FirebaseUser;
  * create an instance of this fragment.
  */
 public class FragAccount extends Fragment {
+
+    RecyclerViewAdapterAcc adapter;
+
 //    // TODO: Rename parameter arguments, choose names that match
 //    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 //    private static final String ARG_PARAM1 = "param1";
@@ -77,6 +82,35 @@ public class FragAccount extends Fragment {
         View v = inflater.inflate(R.layout.fragment_account, container, false);
         Button b = (Button) v.findViewById(R.id.button3);
 //        b.setOnClickListener(this);
+
+        final int[] imageArray = {
+                R.drawable.f1,
+                R.drawable.f2,
+                R.drawable.f3,
+                R.drawable.f4,
+                R.drawable.f5,
+                R.drawable.f6,
+                R.drawable.f7,
+                R.drawable.f8,
+                R.drawable.f9,
+                R.drawable.f10,
+                R.drawable.f11,
+                R.drawable.f12,
+                R.drawable.f13,
+                R.drawable.f14,
+                R.drawable.f15,
+                R.drawable.f16,
+                R.drawable.nyc_morning,
+                R.drawable.signup,
+        };
+
+        // set up the RecyclerView
+        RecyclerView recyclerView = v.findViewById(R.id.arview);
+        int numberOfColumns = 4;
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns));
+        adapter = new RecyclerViewAdapterAcc(getActivity(), imageArray);
+        //adapter.setClickListener(getActivity());
+        recyclerView.setAdapter(adapter);
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override

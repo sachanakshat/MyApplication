@@ -1,12 +1,14 @@
 package com.example.myapplication;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 
 /**
@@ -18,6 +20,9 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class FragNotifs extends Fragment {
+
+    RecyclerViewAdapterNotif adapter;
+
 //    // TODO: Rename parameter arguments, choose names that match
 //    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 //    private static final String ARG_PARAM1 = "param1";
@@ -64,7 +69,84 @@ public class FragNotifs extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notifs, container, false);
+        View view =  inflater.inflate(R.layout.fragment_notifs, container, false);
+
+        // data to populate the RecyclerView with
+        ArrayList<String> animalNames = new ArrayList<>();
+        ArrayList<String> oname = new ArrayList<>();
+        ArrayList<String> ctime = new ArrayList<>();
+        animalNames.add("New photo like");
+        oname.add("Alex Xander");
+        ctime.add("13:54");
+        animalNames.add("New purchase request");
+        oname.add("Richard Hobbs");
+        ctime.add("12:18");
+        animalNames.add("Message Arrived!");
+        oname.add("Michael Shaw");
+        ctime.add("00:00");
+        animalNames.add("Shared your photo");
+        oname.add("Tom Cruise");
+        ctime.add("18:36");
+        animalNames.add("New purchase request");
+        oname.add("James Bond");
+        ctime.add("6:00");
+        animalNames.add("Varuni started following you!");
+        oname.add("Varuni Behl");
+        ctime.add("17:54");
+        animalNames.add("New photo like");
+        oname.add("John Wick");
+        ctime.add("7:15");
+        animalNames.add("Shared your photo");
+        oname.add("Michael Jordan");
+        ctime.add("9:24");
+        animalNames.add("Dileep started following you!");
+        oname.add("Dileep Singh");
+        ctime.add("14:54");
+        animalNames.add("Message Arrived!");
+        oname.add("Shawn Mendes");
+        ctime.add("12:58");
+        animalNames.add("Shared your photo");
+        oname.add("Sarah O'Brien");
+        ctime.add("13:00");
+        animalNames.add("New purchase request");
+        oname.add("Daisy Hill");
+        ctime.add("15:05");
+        animalNames.add("New photo like");
+        oname.add("Amanda Dans");
+        ctime.add("13:54");
+        animalNames.add("Message Arrived!");
+        oname.add("Oliver Bayes");
+        ctime.add("21:23");
+        animalNames.add("Message Arrived!");
+        oname.add("Louis Thomson");
+        ctime.add("23:23");
+        animalNames.add("New purchase request");
+        oname.add("Richard Branson");
+        ctime.add("05:30");
+        animalNames.add("Shared your photo");
+        oname.add("Elon Musk");
+        ctime.add("03:41");
+        animalNames.add("New photo like");
+        oname.add("Mark Zuckerberg");
+        ctime.add("02:16");
+        animalNames.add("New purchase request");
+        oname.add("Donald Trump");
+        ctime.add("01:23");
+        animalNames.add("Shared your photo");
+        oname.add("Valadimir Putin");
+        ctime.add("01:24");
+        animalNames.add("New photo like");
+        oname.add("Kim Jong");
+        ctime.add("19:00");
+
+        // set up the RecyclerView
+        RecyclerView recyclerView = view.findViewById(R.id.rview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        adapter = new RecyclerViewAdapterNotif(getActivity(), animalNames, oname, ctime);
+        //adapter.setClickListener(this);
+        recyclerView.setAdapter(adapter);
+
+        return view;
     }
 
 //    // TODO: Rename method, update argument and hook method into UI event

@@ -88,7 +88,17 @@ public class FragHome extends Fragment {
                 R.drawable.f3,
                 R.drawable.f4,
                 R.drawable.f5,
-                R.drawable.f6
+                R.drawable.f6,
+                R.drawable.f7,
+                R.drawable.f8,
+                R.drawable.f9,
+                R.drawable.f10,
+                R.drawable.f11,
+                R.drawable.f12,
+                R.drawable.f13,
+                R.drawable.f14,
+                R.drawable.f15,
+                R.drawable.f16,
         };
         img.setImageResource(imageArray[i++]);
 
